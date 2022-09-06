@@ -1,0 +1,24 @@
+{
+  "name": "whatsappdms",
+  "version": "1.0.0",
+  "description": "Mass DM WhatsApp users.",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xditya/WhatsAppDMs.git"
+  },
+  "author": "Aditya",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/xditya/WhatsAppDMs/issues"
+  },
+  "homepage": "https://github.com/xditya/WhatsAppDMs#readme",
+  "dependencies": {
+    "csv": "^6.2.0",
+    "whatsapp-web.js": "^1.17.1",
+    "qrcode-terminal": "^0.12.0"
+  }
+}
