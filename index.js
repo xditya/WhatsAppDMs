@@ -34,21 +34,28 @@ client.on("ready", async () => {
 });
 
 function sendMessages() {
+  const readline = require("readline").createInterface({
+    input: process.stdin,
+    output: process.stdout,
+  });
   let number = 0;
-  fs.createReadStream("data.csv")
-    .pipe(parse({ delimiter: ",", from_line: 2 }))
-    .on("data", function (row) {
-      number = row[1];
-      if (number.startsWith("+")) number = number.substring(1);
-      number += "@c.us";
-      client.sendMessage(number, "hi");
-    })
-    .on("end", function () {
-      console.log("Finished sending messages!");
-    })
-    .on("error", function (error) {
-      console.log(error.message);
-    });
+  readline.question(`Enter the message to be sent: `, (msg) => {
+    fs.createReadStream("data.csv")
+      .pipe(parse({ delimiter: ",", from_line: 2 }))
+      .on("data", function (row) {
+        number = row[1];
+        if (number.startsWith("+")) number = number.substring(1);
+        number += "@c.us";
+        client.sendMessage(number, msg);
+      })
+      .on("end", function () {
+        console.log("Finished sending messages!\nUse Ctrl+C to exit.");
+      })
+      .on("error", function (error) {
+        console.log(error.message);
+      });
+    readline.close();
+  });
 }
 
 client.initialize();
