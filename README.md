@@ -1,5 +1,5 @@
 # WhatsApp DMs
-DM WhatsApp users in a data.csv from you WhatsApp account.
+DM WhatsApp users in from a `data.csv` file, using your WhatsApp account.
 
 ## Running
 ```
